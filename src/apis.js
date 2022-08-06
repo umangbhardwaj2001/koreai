@@ -35,9 +35,11 @@ async function checkCapacity(req,res)
 {
     const collection = await dbConnect();
     const result = await collection.find({date:req.params.date}).toArray();
-    let restCapacity=0
+    let restCapacity=capacity
     for(let i in result)
-        restCapacity =capacity-result[i].capacityDelevered
+        {
+            console.log(i);
+            restCapacity-=result[i].capacityDelevered}
     res.json({"rest capacity for the day" : restCapacity,result})
 }
 async function getData(req,res)

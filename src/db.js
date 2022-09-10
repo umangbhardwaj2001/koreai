@@ -1,6 +1,7 @@
 const {MongoClient} = require('mongodb');
 require('dotenv').config()
 const url = process.env.URL
+// const url = "mongodb://localhost:27017"
 const database = 'Milk-DataBase';
 
 const client = new MongoClient(url);
